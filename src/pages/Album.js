@@ -47,7 +47,9 @@ class Album extends Component {
                 <MusicCard
                   trackName={song.trackName}
                   previeUrl={song.previeUrl}
+                  trackId={song.trackId}
                   key={i}
+                  songs={songs}
                 />
               ))}
           </section>
