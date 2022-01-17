@@ -1,19 +1,19 @@
-import React, { Component } from "react";
-import Header from "../components/Header";
-import { getUser } from "../services/userAPI";
-import Loading from "../components/Loading";
-import searchAlbumsAPIs from "../services/searchAlbumsAPI";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import { getUser } from '../services/userAPI';
+import Loading from '../components/Loading';
+import searchAlbumsAPIs from '../services/searchAlbumsAPI';
 
 const MIN_NOME = 2;
 const INITIAL_STATE = {
-  userName: "",
+  userName: '',
   loading: true,
-  artistName: "",
+  artistName: '',
   isDisabled: true,
   loadingPesquisa: false,
   responseApi: false,
-  artisNameShow: "",
+  artisNameShow: '',
   albuns: [],
 };
 
@@ -36,14 +36,14 @@ class Search extends Component {
       {
         [name]: value,
       },
-      () => this.validateinputs()
+      () => this.validateinputs(),
     );
   }
 
   async handleRequest() {
     const { artistName } = this.state;
     this.setState({
-      artistName: "",
+      artistName: '',
       loadingPesquisa: true,
       responseApi: false,
       artisNameShow: artistName,
@@ -103,14 +103,14 @@ class Search extends Component {
               data-testid="search-artist-input"
               type="text"
               placeholder="Pesquisar artista..."
-              onChange={this.handleChange}
-              value={artistName}
+              onChange={ this.handleChange }
+              value={ artistName }
             />
             <button
-              disabled={isDisabled}
+              disabled={ isDisabled }
               data-testid="search-artist-button"
               type="reset"
-              onClick={this.handleRequest}
+              onClick={ this.handleRequest }
             >
               Pesquisar
             </button>
@@ -125,12 +125,15 @@ class Search extends Component {
                 <h3>{`Resultado de álbuns de: ${artisNameShow}`}</h3>
                 <div className="albuns">
                   {albuns.map((albun, i) => (
-                    <div key={albun.id}>
+                    <div key={ albun.id }>
                       <img
-                        src={albun.artworkUrl100}
-                        alt={albun.collectionName}
+                        src={ albun.artworkUrl100 }
+                        alt={ albun.collectionName }
                       />
-                      <h5>Álbum: {i + 1}</h5>
+                      <h5>
+                        Álbum:
+                        {i + 1}
+                      </h5>
                       <p>
                         Artista:
                         {albun.artistName}
@@ -140,8 +143,8 @@ class Search extends Component {
                         {albun.collectionName}
                       </p>
                       <Link
-                        data-testid={`link-to-album-${albun.collectionId}`}
-                        to={`/album/${albun.collectionId}`}
+                        data-testid={ `link-to-album-${albun.collectionId}` }
+                        to={ `/album/${albun.collectionId}` }
                       >
                         Detalhes
                       </Link>

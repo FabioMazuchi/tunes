@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import { addSong } from "../services/favoriteSongsAPI";
-import Loading from "./Loading";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { addSong } from '../services/favoriteSongsAPI';
+import Loading from './Loading';
 
 class MusicCard extends Component {
   constructor() {
@@ -8,40 +9,32 @@ class MusicCard extends Component {
     this.state = {
       favoritCheck: false,
       loading: false,
-      objFaforiteSong: {},
     };
     this.handleChange = this.handleChange.bind(this);
     this.addSongFavorite = this.addSongFavorite.bind(this);
     this.setObjOnSetState = this.setObjOnSetState.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.setObjOnSetsState();
-  // }
-
   handleChange({ target }) {
     const { name, checked } = target;
-    this.setState({
-      [name]: checked,
-    }, () => this.setObjOnSetState(target));
+    this.setState(
+      {
+        [name]: checked,
+      },
+      () => this.setObjOnSetState(target),
+    );
   }
 
   setObjOnSetState(target) {
     const { songs } = this.props;
-    console.log("oi");
-    const nameFavoriteSong =
-      target.parentNode.parentNode.childNodes[0].innerText;
-    const objFavoriteSong = songs.find(
-      (song) => song.trackName === nameFavoriteSong
-    );
-    this.setState({ objFavoriteSong: objFavoriteSong });
-    this.addSongFavorite();
+    const testId = Number(target.getAttribute('data-testid').split('-')[2]);
+    const objFavoriteSong = songs.find((song) => song.trackId === testId);
+    this.addSongFavorite(objFavoriteSong);
   }
 
-  async addSongFavorite() {
-    const { objFaforiteSong } = this.state;
+  async addSongFavorite(obj) {
     this.setState({ loading: true, favoritCheck: true });
-    await addSong(objFaforiteSong);
+    await addSong(obj);
     this.setState({ loading: false });
   }
 
@@ -55,18 +48,18 @@ class MusicCard extends Component {
         ) : (
           <div>
             <p>{trackName}</p>
-            <audio data-testid="audio-component" src={previewUrl} controls>
+            <audio data-testid="audio-component" src={ previewUrl } controls>
               <track kind="captions" />
               <code>audio</code>
             </audio>
-            <label>
+            <label htmlFor="favoritCheck">
               Favorita
               <input
-                checked={favoritCheck}
+                checked={ favoritCheck }
                 name="favoritCheck"
-                onChange={this.handleChange}
+                onChange={ this.handleChange }
                 type="checkbox"
-                data-testid={`checkbox-music-${trackId}`}
+                data-testid={ `checkbox-music-${trackId}` }
               />
             </label>
           </div>
@@ -75,5 +68,33 @@ class MusicCard extends Component {
     );
   }
 }
+
+MusicCard.propTypes = {
+  trackName: PropTypes.string.isRequired,
+  previewUrl: PropTypes.string.isRequired,
+  trackId: PropTypes.number.isRequired,
+  songs: PropTypes.arrayOf(
+    PropTypes.shape({
+      amgArtistId: PropTypes.number.isRequired,
+      artistId: PropTypes.number.isRequired,
+      artistName: PropTypes.string.isRequired,
+      artistViewUrl: PropTypes.string.isRequired,
+      artworkUrl100: PropTypes.string.isRequired,
+      artworkUrl60: PropTypes.string.isRequired,
+      collectionCensoredName: PropTypes.string.isRequired,
+      collectionExplicitness: PropTypes.string.isRequired,
+      collectionId: PropTypes.number.isRequired,
+      collectionName: PropTypes.string.isRequired,
+      collectionPrice: PropTypes.number.isRequired,
+      collectionType: PropTypes.string.isRequired,
+      collectionViewUrl: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
+      primaryGenreName: PropTypes.string.isRequired,
+      releaseDate: PropTypes.string.isRequired,
+      trackCount: PropTypes.number.isRequired,
+      wrapperType: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
 
 export default MusicCard;

@@ -1,7 +1,7 @@
-import propTypes from "prop-types";
-import React, { Component } from "react";
-import { createUser } from "../services/userAPI";
-import Loading from "../components/Loading";
+import propTypes from 'prop-types';
+import React, { Component } from 'react';
+import { createUser } from '../services/userAPI';
+import Loading from '../components/Loading';
 
 const MIN_NOME = 3;
 
@@ -9,7 +9,7 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      nome: "",
+      nome: '',
       isDisabled: true,
       logado: false,
     };
@@ -25,14 +25,14 @@ class Login extends Component {
       {
         [name]: value,
       },
-      () => this.validateinputs()
+      () => this.validateinputs(),
     );
   }
 
   async handleLogin(e) {
     e.preventDefault();
     const { nome } = this.state;
-    this.setState({ logado: true })
+    this.setState({ logado: true });
     await createUser({ name: nome });
     this.changeRoute(e);
   }
@@ -50,7 +50,7 @@ class Login extends Component {
   changeRoute(e) {
     e.preventDefault();
     const { history } = this.props;
-    history.push("/search");
+    history.push('/search');
   }
 
   render() {
@@ -66,14 +66,14 @@ class Login extends Component {
               type="text"
               name="nome"
               placeholder="Nome"
-              value={nome}
-              onChange={this.handleChange}
+              value={ nome }
+              onChange={ this.handleChange }
             />
             <button
               data-testid="login-submit-button"
-              onClick={this.handleLogin}
+              onClick={ this.handleLogin }
               type="submit"
-              disabled={isDisabled}
+              disabled={ isDisabled }
             >
               Entrar
             </button>
