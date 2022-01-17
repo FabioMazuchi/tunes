@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
   constructor() {
@@ -41,11 +40,11 @@ class MusicCard extends Component {
     const { trackId } = this.props;
     const response = await getFavoriteSongs();
     console.log(response);
-    response.forEach((resp => {
+    response.forEach((resp) => {
       if (resp.trackId === trackId) {
-        this.setState({ favoritCheck: true })
+        this.setState({ favoritCheck: true });
       }
-    }))
+    });
   }
 
   async addSongFavorite(obj) {
