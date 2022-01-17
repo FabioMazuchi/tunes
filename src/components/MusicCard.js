@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { addSong } from '../services/favoriteSongsAPI';
 import Loading from './Loading';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
   constructor() {
@@ -13,6 +14,10 @@ class MusicCard extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.addSongFavorite = this.addSongFavorite.bind(this);
     this.setObjOnSetState = this.setObjOnSetState.bind(this);
+  }
+
+  componentDidMount() {
+    this.requestSongs();
   }
 
   handleChange({ target }) {
@@ -30,6 +35,17 @@ class MusicCard extends Component {
     const testId = Number(target.getAttribute('data-testid').split('-')[2]);
     const objFavoriteSong = songs.find((song) => song.trackId === testId);
     this.addSongFavorite(objFavoriteSong);
+  }
+
+  async requestSongs() {
+    const { trackId } = this.props;
+    const response = await getFavoriteSongs();
+    console.log(response);
+    response.forEach((resp => {
+      if (resp.trackId === trackId) {
+        this.setState({ favoritCheck: true })
+      }
+    }))
   }
 
   async addSongFavorite(obj) {
