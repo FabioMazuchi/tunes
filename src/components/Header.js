@@ -13,9 +13,6 @@ class Header extends Component {
             <Link data-testid="link-to-favorites" to="/favorites">
               Favorites
             </Link>
-            <Link data-testid="link-to-profile" to="/profile">
-              Profile
-            </Link>
           </ul>
         </nav>
       </header>

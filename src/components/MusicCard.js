@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
-import Loading from './Loading';
+import {
+  addSong,
+  getFavoriteSongs,
+  removeSong,
+} from '../services/favoriteSongsAPI';
 
 class MusicCard extends Component {
   constructor() {
     super();
     this.state = {
       favoritCheck: false,
+      // eslint-disable-next-line react/no-unused-state
       loading: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.addSongFavorite = this.addSongFavorite.bind(this);
+    this.removeSongFavorite = this.removeSongFavorite.bind(this);
     this.setObjOnSetState = this.setObjOnSetState.bind(this);
   }
 
@@ -33,13 +38,17 @@ class MusicCard extends Component {
     const { songs } = this.props;
     const testId = Number(target.getAttribute('data-testid').split('-')[2]);
     const objFavoriteSong = songs.find((song) => song.trackId === testId);
-    this.addSongFavorite(objFavoriteSong);
+    if (target.checked) {
+      this.addSongFavorite(objFavoriteSong);
+    } else {
+      this.removeSongFavorite(objFavoriteSong);
+    }
   }
 
   async requestSongs() {
     const { trackId } = this.props;
     const response = await getFavoriteSongs();
-    console.log(response);
+
     response.forEach((resp) => {
       if (resp.trackId === trackId) {
         this.setState({ favoritCheck: true });
@@ -47,45 +56,61 @@ class MusicCard extends Component {
     });
   }
 
+  async removeSongFavorite(obj) {
+    // eslint-disable-next-line react/no-unused-state
+    this.setState({ loading: true });
+    await removeSong(obj);
+    // eslint-disable-next-line react/no-unused-state
+    this.setState({ loading: false });
+  }
+
   async addSongFavorite(obj) {
-    this.setState({ loading: true, favoritCheck: true });
+    // eslint-disable-next-line react/no-unused-state
+    this.setState({ loading: true });
     await addSong(obj);
+    // eslint-disable-next-line react/no-unused-state
     this.setState({ loading: false });
   }
 
   render() {
-    const { trackName, previewUrl, trackId } = this.props;
-    const { loading, favoritCheck } = this.state;
+    const { previewUrl, trackId, track } = this.props;
+    const { favoritCheck } = this.state;
     return (
       <div>
-        {loading ? (
-          <Loading />
-        ) : (
+        <div className="songsSingle">
+          <p>
+            Música
+            { track }
+          </p>
           <div>
-            <p>{trackName}</p>
             <audio data-testid="audio-component" src={ previewUrl } controls>
               <track kind="captions" />
               <code>audio</code>
             </audio>
-            <label htmlFor="favoritCheck">
-              Favorita
+            <label htmlFor={ trackId }>
               <input
+                id={ trackId }
                 checked={ favoritCheck }
                 name="favoritCheck"
                 onChange={ this.handleChange }
                 type="checkbox"
                 data-testid={ `checkbox-music-${trackId}` }
               />
+              {favoritCheck ? (
+                <i className="fas fa-heart" />
+              ) : (
+                <i className="far fa-heart" />
+              )}
             </label>
           </div>
-        )}
+        </div>
       </div>
     );
   }
 }
 
 MusicCard.propTypes = {
-  trackName: PropTypes.string.isRequired,
+  track: PropTypes.string.isRequired,
   previewUrl: PropTypes.string.isRequired,
   trackId: PropTypes.number.isRequired,
   songs: PropTypes.arrayOf(

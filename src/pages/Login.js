@@ -60,7 +60,7 @@ class Login extends Component {
         {logado ? (
           <Loading />
         ) : (
-          <form>
+          <form className="login">
             <input
               data-testid="login-name-input"
               type="text"

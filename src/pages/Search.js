@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import { getUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import searchAlbumsAPIs from '../services/searchAlbumsAPI';
+import Footer from '../components/Footer';
 
 const MIN_NOME = 2;
 const INITIAL_STATE = {
@@ -87,22 +88,25 @@ class Search extends Component {
       albuns,
     } = this.state;
     return (
-      <div data-testid="page-search">
+      <div className="search" data-testid="page-search">
         <Header />
         {loading ? (
           <Loading />
         ) : (
-          <h2 data-testid="header-user-name">{userName}</h2>
+          <h2 data-testid="header-user-name">
+            Bem vindo(a)
+            {userName}
+          </h2>
         )}
         {loadingPesquisa ? (
           <Loading />
         ) : (
-          <form>
+          <form className="search">
             <input
               name="artistName"
               data-testid="search-artist-input"
               type="text"
-              placeholder="Pesquisar artista..."
+              placeholder="Pesquisar por artista, banda..."
               onChange={ this.handleChange }
               value={ artistName }
             />
@@ -117,44 +121,48 @@ class Search extends Component {
           </form>
         )}
         {responseApi && (
-          <section>
+          <section className="container">
             {albuns.length === 0 ? (
-              <span>Nenhum álbum foi encontrado</span>
+              <div className="nenhumAlbum">
+                <span>Nenhum álbum foi encontrado</span>
+              </div>
             ) : (
               <section>
-                <h3>{`Resultado de álbuns de: ${artisNameShow}`}</h3>
-                <div className="albuns">
-                  {albuns.map((albun, i) => (
-                    <div key={ albun.id }>
-                      <img
-                        src={ albun.artworkUrl100 }
-                        alt={ albun.collectionName }
-                      />
-                      <h5>
-                        Álbum:
-                        {i + 1}
-                      </h5>
-                      <p>
-                        Artista:
-                        {albun.artistName}
-                      </p>
-                      <p>
-                        Album:
-                        {albun.collectionName}
-                      </p>
+                <h3>
+                  Resultado de álbuns de
+                  <span>{artisNameShow}</span>
+                </h3>
+                <div>
+                  <div className="albuns">
+                    {albuns.map((albun) => (
                       <Link
                         data-testid={ `link-to-album-${albun.collectionId}` }
                         to={ `/album/${albun.collectionId}` }
+                        key={ albun.id }
                       >
-                        Detalhes
+                        <img
+                          src={ albun.artworkUrl100 }
+                          alt={ albun.collectionName }
+                        />
+                        <div>
+                          <p>
+                            Artista:
+                            <span>{albun.artistName}</span>
+                          </p>
+                          <p>
+                            Album:
+                            <span>{albun.collectionName}</span>
+                          </p>
+                        </div>
                       </Link>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </section>
             )}
           </section>
         )}
+        <Footer />
       </div>
     );
   }
