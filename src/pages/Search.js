@@ -22,26 +22,19 @@ class Search extends Component {
   constructor() {
     super();
     this.state = INITIAL_STATE;
-    this.handleChange = this.handleChange.bind(this);
-    this.validateinputs = this.validateinputs.bind(this);
-    this.handleRequest = this.handleRequest.bind(this);
   }
 
   componentDidMount() {
     this.renderUser();
   }
 
-  handleChange({ target }) {
+  handleChange = ({ target }) => {
     const { name, value } = target;
-    this.setState(
-      {
-        [name]: value,
-      },
-      () => this.validateinputs(),
-    );
+    this.setState({ [name]: value },
+      () => this.validateinputs());
   }
 
-  async handleRequest() {
+  handleRequest = async () => {
     const { artistName } = this.state;
     this.setState({
       artistName: '',
@@ -57,7 +50,7 @@ class Search extends Component {
     });
   }
 
-  validateinputs() {
+  validateinputs = () => {
     const { artistName } = this.state;
 
     if (artistName.length >= MIN_NOME) {
@@ -94,8 +87,7 @@ class Search extends Component {
           <Loading />
         ) : (
           <h2 data-testid="header-user-name">
-            Bem vindo(a)
-            {userName}
+            { `Bem vindo(a) ${userName}` }
           </h2>
         )}
         {loadingPesquisa ? (
@@ -128,10 +120,7 @@ class Search extends Component {
               </div>
             ) : (
               <section>
-                <h3>
-                  Resultado de álbuns de
-                  <span>{artisNameShow}</span>
-                </h3>
+                <h3>{`Resultado de álbuns de ${artisNameShow}`}</h3>
                 <div>
                   <div className="albuns">
                     {albuns.map((albun) => (
@@ -145,14 +134,8 @@ class Search extends Component {
                           alt={ albun.collectionName }
                         />
                         <div>
-                          <p>
-                            Artista:
-                            <span>{albun.artistName}</span>
-                          </p>
-                          <p>
-                            Album:
-                            <span>{albun.collectionName}</span>
-                          </p>
+                          <h4>{`${albun.artistName}`}</h4>
+                          <p>{albun.collectionName}</p>
                         </div>
                       </Link>
                     ))}

@@ -50,18 +50,8 @@ class Album extends Component {
           <div data-testid="page-album" className="albumTracks">
             <section className="tituloImagem">
               <img src={ imgAlbum } alt="imagem" />
-              <h3 data-testid="artist-name">
-                Artista:
-                <span>
-                  { artisName }
-                </span>
-              </h3>
-              <h3 data-testid="album-name">
-                Album:
-                <span>
-                  { albumName }
-                </span>
-              </h3>
+              <h3 data-testid="artist-name">{ artisName }</h3>
+              <h4 data-testid="album-name">{ albumName }</h4>
             </section>
             <section className="containerSongs">
               {songs

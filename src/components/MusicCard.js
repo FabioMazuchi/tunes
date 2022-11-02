@@ -78,10 +78,7 @@ class MusicCard extends Component {
     return (
       <div>
         <div className="songsSingle">
-          <p>
-            Música
-            { track }
-          </p>
+          <p>{`Música ${track}`}</p>
           <div>
             <audio data-testid="audio-component" src={ previewUrl } controls>
               <track kind="captions" />
