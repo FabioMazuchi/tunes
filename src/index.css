@@ -101,7 +101,6 @@ header {
 
 header nav ul {
   display: flex;
-  background-color: whitesmoke;
 }
 
 header nav ul a{
@@ -109,11 +108,18 @@ header nav ul a{
   text-align: center;
   color: white;
   flex-basis: 50%;
-  background-color: #aaa694;
-  border-right: 3px solid white;
+  background-color: transparent;
+  border-right: 3px solid #2e2e2e;
   text-decoration: none;
   font-size: 20px;
+  transition: 0.5s;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+header nav ul a:hover {
+  color: #af5b95;
+} 
 
 header nav ul a:nth-child(2){
   border-right: none;
@@ -121,36 +127,48 @@ header nav ul a:nth-child(2){
 
 .search h2 {
   text-align: center;
-  color: #7c6c77;
+  color: white;
+  font-weight: lighter;
   margin-bottom: 10px;
 }
 
 form.search {
+  width: 35%;
   flex-direction: row;
-  width: 30%;
   display: flex;
   margin: 10px auto;
 }
 
 form.search input {
-  width: 70%;
+  width: 100%;
   font-size: 16px;
-  padding: 3px 8px;
+  padding: 6px 8px;
+  margin-right: 14px;
+  outline: 0;
+  border: none;
+  border-radius: 14px;
 }
+
 form.search button {
   font-size: 16px;
   width: 30%;
-  background-color: #7c6c77;
+  background-color: #8d4c78;
   border: 0;
   color: white;
   cursor: pointer;
+  border-radius: 14px;
+  transition: 0.5s;
+}
+
+form.search button:hover {
+  background-color: #6e3a5e;
 }
 
 .loading {
   margin-top: 20px;
   text-align: center;
   font-size: 25px;
-  color: #7c6c77;
+  color: white;
 }
 
 .container {
@@ -167,7 +185,7 @@ form.search button {
 .container h3 {
   margin: 10px 0 20px;
   text-align: center;
-  color: #7c6c77;
+  color: white;
   font-weight: lighter;
 }
 
@@ -188,8 +206,8 @@ form.search button {
   flex-basis: 13%;
   margin-bottom: 14px;
   text-decoration: none;
-  border: 1px solid #656464;
-  box-shadow: 3px 2px 2px #656464;
+  /* border: 1px solid #656464; */
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .albuns img {
@@ -226,12 +244,15 @@ form.search button {
 
 .tituloImagem h3 {
   margin: 7px 0;
-  color: #504e49;
-  font-weight: lighter;
+  color: white;
+  font-size: 18px;
 }
 
-.tituloImagem span {
-  font-weight: bold;
+.tituloImagem h4 {
+  margin: 7px 0;
+  color: white;
+  font-weight: lighter;
+  font-size: 18px;
 }
 
 .containerSongs {
@@ -245,7 +266,7 @@ form.search button {
 }
 
 .songsSingle p {
-  color: #504e49;
+  color: white;
 }
 
 .songsSingle div {
@@ -276,7 +297,7 @@ form.search button {
 
 .favorites h1 {
   text-align: center;
-  color: #504e49;
+  color: white;
   margin-bottom: 30px;
 }
 
@@ -293,12 +314,13 @@ form.search button {
 footer {
   position: fixed;
   bottom: 0;
+  background-color: #2e2e2e;
   width: 100%;
-  background-color: #504e49;
   padding: 8px 0;
   color: white;
   text-align: center;
   font-size: 18px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -355,6 +377,9 @@ footer {
   div.login li {
     font-size: 14px;
   }
+  form.search {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 415px) {
@@ -362,7 +387,7 @@ footer {
     flex-basis: 49%;
   }
   form.search {
-    width: 80%;
+    width: 90%;
   } 
   .albumTracks {
     width: 90%;
