@@ -7,7 +7,7 @@
 
 body {
   height: 100%;
-  background-color: #ffe787;
+  background-color: #2e2e2e;
 }
 
 form.login {
@@ -34,7 +34,7 @@ form.login button {
 .search {
   display: flex;
   flex-direction: column;
-  background-color: #ffe787;
+  background-color: #2e2e2e;
 }
 
 header {
@@ -128,10 +128,10 @@ form.search button {
   display: flex;
   flex-direction: column;
   flex-basis: 13%;
-  background-color: #aaa694;
   margin-bottom: 14px;
   text-decoration: none;
-  box-shadow: 3px 2px 2px #504e49;
+  border: 1px solid #656464;
+  box-shadow: 3px 2px 2px #656464;
 }
 
 .albuns img {
@@ -144,10 +144,10 @@ form.search button {
   padding: 4px;
 }
 
-.albuns div p {
+.albuns div p, h4{
   font-size: 13px;
   margin-bottom: 4px;
-  color: #686660;
+  color: #c9c8c5;
 }
 
 .albumTracks {
