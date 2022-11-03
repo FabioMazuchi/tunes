@@ -1,5 +1,6 @@
 import propTypes from 'prop-types';
 import React, { Component } from 'react';
+import { GiMusicSpell } from 'react-icons/gi';
 import { createUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 
@@ -56,28 +57,44 @@ class Login extends Component {
   render() {
     const { nome, isDisabled, logado } = this.state;
     return (
-      <div data-testid="page-login">
+      <div className="login" data-testid="page-login">
         {logado ? (
           <Loading />
         ) : (
-          <form className="login">
-            <input
-              data-testid="login-name-input"
-              type="text"
-              name="nome"
-              placeholder="Nome"
-              value={ nome }
-              onChange={ this.handleChange }
-            />
-            <button
-              data-testid="login-submit-button"
-              onClick={ this.handleLogin }
-              type="submit"
-              disabled={ isDisabled }
-            >
-              Entrar
-            </button>
-          </form>
+          <>
+            <div className="div-login">
+              <h1>
+                Trybetunes
+                <span><GiMusicSpell /></span>
+              </h1>
+              <ul>
+                <li>Liste os álbuns de um artista, banda, dupla etc.</li>
+                <li>Ouça por 30 segundos as faixas de um álbum.</li>
+                <li>Confira os nomes das músicas em um álbum.</li>
+              </ul>
+            </div>
+            <form className="login">
+              <label htmlFor="nome">
+                Qual é o seu nome?
+                <input
+                  data-testid="login-name-input"
+                  type="text"
+                  name="nome"
+                  value={ nome }
+                  onChange={ this.handleChange }
+                  id="nome"
+                />
+              </label>
+              <button
+                data-testid="login-submit-button"
+                onClick={ this.handleLogin }
+                type="submit"
+                disabled={ isDisabled }
+              >
+                Entrar
+              </button>
+            </form>
+          </>
         )}
       </div>
     );
