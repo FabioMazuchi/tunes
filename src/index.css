@@ -239,13 +239,12 @@ form.search button:hover {
 }
 
 .tituloImagem h3 {
-  margin: 7px 0;
+  margin-top: 7px;
   color: white;
   font-size: 18px;
 }
 
 .tituloImagem h4 {
-  margin: 7px 0;
   color: white;
   font-weight: lighter;
   font-size: 18px;
@@ -271,13 +270,30 @@ form.search button:hover {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 55%;
+  width: 75%;
 }
 
 .songsSingle div audio {
   width: 85%;
   margin: 9px 0 12px;
   height: 40px;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #4e4b4b;
+}
+
+.favorites .songsSingle section audio {
+  width: 100%;
+  margin: 9px 0 12px;
+  height: 40px;
+}
+
+.songsSingle section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 65%;
 }
 
 .songsSingle div input {
@@ -347,12 +363,6 @@ footer {
   .songsSingle div {
     width: 100%;
   }
-  .songsSingle div audio {
-    width: 70%;
-  }
-  .songsSingle p {
-    width: 30%;
-  }
 }
 
 @media screen and (max-width: 700px) {
@@ -402,6 +412,12 @@ footer {
   }
   .favorites {
     width: 98%;
+  }
+  .favorites h1 {
+    font-size: 25px;
+  }
+  .favorites section {
+    width: 70%;
   }
   .songsSingle div audio {
     width: 78%;

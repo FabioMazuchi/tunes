@@ -74,17 +74,19 @@ class Favorites extends Component {
             <h1>Músicas Favoritas</h1>
             {favSongs.map((song) => (
               <div className="songsSingle" key={ song.trackId }>
-                <p>{song.trackName}</p>
-                <img src={ song.artworkUrl100 } alt={ song.trackName } />
                 <div>
-                  <audio
-                    data-testid="audio-component"
-                    src={ song.previewUrl }
-                    controls
-                  >
-                    <track kind="captions" />
-                    <code>audio</code>
-                  </audio>
+                  <img src={ song.artworkUrl60 } alt={ song.trackName } />
+                  <section>
+                    <p>{song.trackName}</p>
+                    <audio
+                      data-testid="audio-component"
+                      src={ song.previewUrl }
+                      controls
+                    >
+                      <track kind="captions" />
+                      <code>audio</code>
+                    </audio>
+                  </section>
                   <label htmlFor={ trackId }>
                     <input
                       id={ trackId }
