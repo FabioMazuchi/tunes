@@ -50,8 +50,10 @@ class Album extends Component {
           <div data-testid="page-album" className="albumTracks">
             <section className="tituloImagem">
               <img src={ imgAlbum } alt="imagem" />
-              <h3 data-testid="artist-name">{ artisName }</h3>
-              <h4 data-testid="album-name">{ albumName }</h4>
+              <div>
+                <h3 data-testid="artist-name">{ artisName }</h3>
+                <h4 data-testid="album-name">{ albumName }</h4>
+              </div>
             </section>
             <section className="containerSongs">
               {songs
@@ -62,6 +64,7 @@ class Album extends Component {
                     previewUrl={ song.previewUrl }
                     trackId={ song.trackId }
                     key={ song.trackId }
+                    trackName={ song.trackName }
                     songs={ songs }
                   />
                 ))}

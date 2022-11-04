@@ -8,10 +8,10 @@ class Header extends Component {
         <nav>
           <ul>
             <Link data-testid="link-to-search" to="/search">
-              Search
+              Procurar
             </Link>
             <Link data-testid="link-to-favorites" to="/favorites">
-              Favorites
+              Favoritas
             </Link>
           </ul>
         </nav>

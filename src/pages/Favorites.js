@@ -74,6 +74,7 @@ class Favorites extends Component {
             <h1>Músicas Favoritas</h1>
             {favSongs.map((song) => (
               <div className="songsSingle" key={ song.trackId }>
+                <p>{song.trackName}</p>
                 <img src={ song.artworkUrl100 } alt={ song.trackName } />
                 <div>
                   <audio
