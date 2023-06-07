@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import { getUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 import searchAlbumsAPIs from '../services/searchAlbumsAPI';
 import Footer from '../components/Footer';
@@ -22,10 +21,6 @@ class Search extends Component {
   constructor() {
     super();
     this.state = INITIAL_STATE;
-  }
-
-  componentDidMount() {
-    this.renderUser();
   }
 
   handleChange = ({ target }) => {
@@ -60,19 +55,8 @@ class Search extends Component {
     }
   }
 
-  async renderUser() {
-    const obj = await getUser();
-    const nome = obj.name;
-    this.setState({
-      userName: nome,
-      loading: false,
-    });
-  }
-
   render() {
     const {
-      userName,
-      loading,
       artistName,
       isDisabled,
       loadingPesquisa,
@@ -83,13 +67,6 @@ class Search extends Component {
     return (
       <div className="search" data-testid="page-search">
         <Header />
-        {loading ? (
-          <Loading />
-        ) : (
-          <h2 data-testid="header-user-name">
-            { `Bem vindo(a) ${userName}` }
-          </h2>
-        )}
         {loadingPesquisa ? (
           <Loading />
         ) : (

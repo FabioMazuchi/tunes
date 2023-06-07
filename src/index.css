@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Lora', serif;
+  text-decoration: none;
 }
 
 body {
@@ -96,33 +97,71 @@ form.login button:hover {
 }
 
 header {
+  display: flex;
   margin-bottom: 20px;
+  padding: 8px 2%;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+header h1 {
+  font-size: 22px;
+  letter-spacing: 1px;
+  color: #8d4c78; 
+}
+
+header span {
+  font-size: 20px;
+}
+
+header nav {
+  width: 15%;
 }
 
 header nav ul {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header nav ul a{
-  padding: 12px 0;
-  text-align: center;
   color: white;
-  flex-basis: 50%;
-  background-color: transparent;
-  border-right: 3px solid #2e2e2e;
-  text-decoration: none;
-  font-size: 20px;
   transition: 0.5s;
-  font-weight: bold;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+header div{
+  display: flex;
+  align-items: center;
+}
+
+header div span{
+  margin-right: 8px;
+  color: white;
+  font-size: 14px;
+}
+
+header div p{
+  color: transparent;
+  width: 140px;
 }
 
 header nav ul a:hover {
-  color: #af5b95;
+  color: #c380ae;
 } 
 
-header nav ul a:nth-child(2){
-  border-right: none;
+.perfil {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  background-color: #4e4b4b;
 }
 
 .search h2 {

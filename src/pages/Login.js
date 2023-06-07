@@ -68,9 +68,9 @@ class Login extends Component {
                 <span><GiMusicSpell /></span>
               </h1>
               <ul>
-                <li>Liste os álbuns de um artista, banda, dupla etc.</li>
-                <li>Ouça por 30 segundos as faixas de um álbum.</li>
-                <li>Confira os nomes das músicas em um álbum.</li>
+                <li>Pesquise pelo seu artista favorito</li>
+                <li>Ouça por 30 segundos as faixas de um álbum</li>
+                <li>Confira os nomes das músicas em um álbum</li>
               </ul>
             </div>
             <form className="login">
