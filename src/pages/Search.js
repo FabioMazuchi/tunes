@@ -75,7 +75,7 @@ class Search extends Component {
               name="artistName"
               data-testid="search-artist-input"
               type="text"
-              placeholder="Digite aqui sua pesquisa"
+              placeholder="Pesquisar por artista, banda..."
               onChange={ this.handleChange }
               value={ artistName }
             />
