@@ -119,15 +119,12 @@ header nav ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 140px;
 }
 
 header nav ul a{
   color: white;
   transition: 0.3s;
-}
-
-header nav ul:nth-child(1){
-  margin-left: 16px;
 }
 
 header div{
@@ -454,6 +451,9 @@ footer {
   }
   header span {
     font-size: 12px;
+  }
+  header nav ul {
+    width: 100px;
   }
   header nav ul a {
     font-size: 12px;
