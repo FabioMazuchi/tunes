@@ -133,7 +133,7 @@ header div{
 }
 
 header div span{
-  margin-right: 8px;
+  margin-right: 12px;
   color: white;
   font-size: 14px;
 }
@@ -149,9 +149,9 @@ header nav ul a:hover {
 
 .perfil {
   border-radius: 50%;
-  width: 25px;
-  height: 25px;
-  font-size: 16px;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -450,6 +450,7 @@ footer {
     font-size: 12px;
   }
   header span {
+    display: none;
     font-size: 12px;
   }
   header nav ul {
