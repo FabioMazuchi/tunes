@@ -23,7 +23,6 @@ class Header extends Component {
 
   render() {
     const { userName } = this.state;
-    console.log(userName);
     return (
       <header data-testid="header-component">
         <Link to="/search">
