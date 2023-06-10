@@ -16,8 +16,8 @@ class Profile extends Component {
   }
 
   updateUser = async () => {
-    const { image } = await getUser();
-    this.setState({ image });
+    const { image, name } = await getUser();
+    this.setState({ image, name });
   }
 
   render() {
