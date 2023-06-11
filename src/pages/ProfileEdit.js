@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import Swal from 'sweetalert2';
 import Header from '../components/Header';
-import { getUser } from '../services/userAPI';
+import { getUser, updateUser } from '../services/userAPI';
 import profile from '../images/profile.png';
+
+const MIN_NOME = 3;
 
 class ProfileEdit extends Component {
   constructor() {
@@ -21,6 +24,26 @@ class ProfileEdit extends Component {
   updateUser = async () => {
     const { image, name } = await getUser();
     this.setState({ image, name });
+  }
+
+  saveModifications = async () => {
+    const { name, image } = this.state;
+    if (name.length < MIN_NOME) {
+      Swal.fire({
+        icon: 'error',
+        // title: 'O',
+        text: 'O campo nome não pode ter menos que três letras!',
+      });
+    } else {
+      updateUser({ name, image });
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Perfil atualizado com sucesso!',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
   }
 
   upload = ({ target: { files } }) => {
@@ -44,6 +67,7 @@ class ProfileEdit extends Component {
                 ) : (
                   <img src={ image } alt={ name } />
                 )}
+                <span>Trocar Imagem</span>
                 <input
                   id="arquivo"
                   type="file"
@@ -62,7 +86,7 @@ class ProfileEdit extends Component {
                 value={ name }
               />
             </label>
-            <button type="button">Salvar</button>
+            <button onClick={ this.saveModifications } type="button">Salvar</button>
           </main>
         ) : (<h3 className="loading">Loading...</h3>)}
       </div>

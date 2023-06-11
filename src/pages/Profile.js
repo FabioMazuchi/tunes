@@ -25,18 +25,20 @@ class Profile extends Component {
     return (
       <div data-testid="page-profile">
         <Header />
-        <main className="profile">
-          <h1>Profile</h1>
-          <section>
-            {!image ? (
-              <img src={ profile } alt="Imagem de Perfil" />
-            ) : (
-              <img src={ image } alt="Imagem de Perfil" />
-            )}
-            <h2>{name}</h2>
-          </section>
-          <Link to="/profile/edit">Edit Profile</Link>
-        </main>
+        {name ? (
+          <main className="profile">
+            <h1>Profile</h1>
+            <section>
+              {!image ? (
+                <img src={ profile } alt="Imagem de Perfil" />
+              ) : (
+                <img src={ image } alt="Imagem de Perfil" />
+              )}
+              <h2>{name}</h2>
+            </section>
+            <Link to="/profile/edit">Edit Profile</Link>
+          </main>
+        ) : <h3 className="loading">Loading...</h3>}
         <Footer />
       </div>
     );

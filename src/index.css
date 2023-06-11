@@ -137,6 +137,12 @@ header div span{
   font-size: 14px;
 }
 
+header div img{
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+}
+
 header div p{
   color: transparent;
   width: 140px;
@@ -378,7 +384,10 @@ main.profile section {
 }
 
 main.profile section img {
-  width: 30%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 8px;
 }
 
 main.profile a {
@@ -391,7 +400,7 @@ main.profile a {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 300px;
+  height: 360px;
 }
 
 .profile-edit form {
@@ -423,21 +432,24 @@ main.profile a {
 }
 
 .profile-edit form label {
-  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  width: 100%;
+  cursor: pointer;
 }
 
 .profile-edit img {
-  width: 25%;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 .profile-edit button {
   margin-top: 20px;
   font-size: 16px;
-  width: 10%;
+  width: 80px;
   background-color: #8d4c78;
   border: 0;
   color: white;
@@ -548,6 +560,9 @@ footer {
   }
   header div span {
     font-size: 12px;
+  }
+  header div p {
+    display: none;
   }
   form.search {
     width: 90%;

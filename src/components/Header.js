@@ -6,7 +6,7 @@ import { getUser } from '../services/userAPI';
 class Header extends Component {
   constructor() {
     super();
-    this.state = { name: '' };
+    this.state = { name: '', image: null };
   }
 
   componentDidMount() {
@@ -14,12 +14,12 @@ class Header extends Component {
   }
 
   renderUser = async () => {
-    const { name } = await getUser();
-    this.setState({ name });
+    const { name, image } = await getUser();
+    this.setState({ name, image });
   }
 
   render() {
-    const { name } = this.state;
+    const { name, image } = this.state;
     return (
       <header data-testid="header-component">
         <Link to="/search">
@@ -42,9 +42,15 @@ class Header extends Component {
           {name ? (
             <>
               <span>{`Boas vindas, ${name}`}</span>
-              <Link className="perfil" to="/profile">
-                {name[0]}
-              </Link>
+              {!image ? (
+                <Link className="perfil" to="/profile">
+                  {name[0]}
+                </Link>
+              ) : (
+                <Link to="/profile">
+                  <img src={ image } alt={ name } />
+                </Link>
+              )}
             </>
           ) : <p>username</p>}
         </div>
