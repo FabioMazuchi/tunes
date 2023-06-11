@@ -39,12 +39,11 @@ form.login label {
 form.login input {
   width: 100%;
   font-size: 16px;
-  padding: 3px 8px;
+  padding: 3px 0;
   border: none;
   border-bottom: 1px solid white;
   background-color: transparent;
   outline: 0;
-  caret-color: white;
   color: white;
   margin: 8px 0;
 }
@@ -384,6 +383,68 @@ main.profile section img {
 
 main.profile a {
   color: white;
+}
+
+.profile-edit {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 300px;
+}
+
+.profile-edit form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.profile-edit .name {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.profile-edit .name input {
+  margin-left: 8px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  color: white;
+  font-size: 18px;
+  outline: none;
+}
+
+.profile-edit form input[type="file"] {
+  display: none;
+}
+
+.profile-edit form label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.profile-edit img {
+  width: 25%;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.profile-edit button {
+  margin-top: 20px;
+  font-size: 16px;
+  width: 10%;
+  background-color: #8d4c78;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  padding: 5px 0;
+  border-radius: 14px;
+  transition: 0.5s;
 }
 
 footer {
