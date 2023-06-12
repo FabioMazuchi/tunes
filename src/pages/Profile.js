@@ -30,9 +30,9 @@ class Profile extends Component {
             <h1>Profile</h1>
             <section>
               {!image ? (
-                <img src={ profile } alt="Imagem de Perfil" />
+                <img className="default-image" src={ profile } alt="Imagem de Perfil" />
               ) : (
-                <img src={ image } alt="Imagem de Perfil" />
+                <img className="selected-image" src={ image } alt="Imagem de Perfil" />
               )}
               <h2>{name}</h2>
             </section>

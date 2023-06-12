@@ -83,6 +83,7 @@ class Login extends Component {
                   value={ nome }
                   onChange={ this.handleChange }
                   id="nome"
+                  placeholder="Mínimo com três letras"
                 />
               </label>
               <button

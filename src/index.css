@@ -383,7 +383,12 @@ main.profile section {
   justify-content: space-around;
 }
 
-main.profile section img {
+.default-image {
+  width: 30%;
+  margin-bottom: 8px;
+}
+
+.selected-image {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -437,13 +442,6 @@ main.profile a {
   align-items: center;
   width: 100%;
   cursor: pointer;
-}
-
-.profile-edit img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin: 10px auto;
 }
 
 .profile-edit button {
@@ -550,6 +548,10 @@ footer {
   header span {
     display: none;
     font-size: 12px;
+  }
+  header div img {
+    width: 30px;
+    height: 30px;
   }
   header nav ul {
     width: 100px;

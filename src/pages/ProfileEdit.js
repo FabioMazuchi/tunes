@@ -31,7 +31,6 @@ class ProfileEdit extends Component {
     if (name.length < MIN_NOME) {
       Swal.fire({
         icon: 'error',
-        // title: 'O',
         text: 'O campo nome não pode ter menos que três letras!',
       });
     } else {
@@ -63,9 +62,9 @@ class ProfileEdit extends Component {
             <form>
               <label htmlFor="arquivo">
                 {image === '' ? (
-                  <img src={ profile } alt={ name } />
+                  <img className="default-image" src={ profile } alt={ name } />
                 ) : (
-                  <img src={ image } alt={ name } />
+                  <img className="selected-image" src={ image } alt={ name } />
                 )}
                 <span>Trocar Imagem</span>
                 <input
