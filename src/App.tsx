@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/tunes' element={ <Login /> } />
+        <Route path='/trybetunes' element={ <Login /> } />
         <Route path='/' element={ <Layout /> }>
           <Route path='/home' element={ <Home /> } />
           <Route path='/album/:id' element={ <Album /> } />
