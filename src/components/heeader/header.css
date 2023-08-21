@@ -1,0 +1,15 @@
+a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+a:hover {
+    color: #e2aed1;
+}
+
+.active {
+    font-weight: bold;
+    border-bottom: 1px solid white;
+}

@@ -1,0 +1,20 @@
+#root {
+	display: grid;
+	grid-template-areas: 
+	'header'
+	'main'
+	'footer';
+	grid-template-rows: 10vh auto 8vh;
+}
+
+header {
+	grid-area: header;
+}
+
+main {
+	grid-area: main;
+}
+
+footer {
+	grid-area: footer;
+}
