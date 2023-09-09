@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Main = styled.main`
 	min-height: 100%;
@@ -19,7 +19,14 @@ export const Aside = styled.aside`
 export const Aga2 = styled.h2`
 	font-size: 27px;
 	display: flex;
-	align-items: flex-end;
+	align-items: center;
+`;
+
+export const Heart = styled.span`
+	font-size: 25px;
+	display: flex;
+	align-items: center;
+	margin-left: 8px;
 `;
 
 export const Ul = styled.ul`
@@ -132,17 +139,14 @@ export const Paragraph = styled.p`
 	font-size: 1.2rem;
 `;
 
-export const Span = styled.span<{ $primary?: boolean }>`
+export const Span = styled.span`
 	margin-left: 8px;
 	color: #c561a5;
 	font-size: 1.4rem;
 	cursor: pointer;
-
-	${props =>
-	props.$primary &&
-	css`
-		color: white;
-	`}
+	@media (max-width: 290px) {
+    	font-size: 1rem;
+	}
 `;
 
 export const NotMusicFavorites = styled.h1`

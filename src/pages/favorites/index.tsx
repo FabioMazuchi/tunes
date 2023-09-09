@@ -1,4 +1,4 @@
-import { Main, Section , Ul, Li, Img, Div, Aside, AlbumDescription, Aga3, Player, DivPlayer, Paragraph, Span, NotMusicFavorites, Aga1, Aga2, Aga4 } from "./styles"
+import { Main, Section , Ul, Li, Img, Div, Aside, AlbumDescription, Aga3, Player, DivPlayer, Paragraph, Span, NotMusicFavorites, Aga1, Aga2, Aga4, Heart } from "./styles"
 import { readFavoriteMusic, removeFavorite, saveFavoriteMusic } from "../../services/favoriteMusic";
 import { useEffect, useState } from "react";
 import { MusicType } from "../../types";
@@ -86,7 +86,7 @@ export const Favorites = () => {
 			{(musics.length > 0 && !loading) ? (
 				<>
 					<Aside>
-						<Aga2>Favorite Musics <Span $primary><AiTwotoneHeart /></Span></Aga2>
+						<Aga2>Músicas Favoritas <Heart><AiTwotoneHeart /></Heart></Aga2>
 						<Ul>
 							{musics.map(({ trackName, trackNumber }) => (<Li>{`${trackNumber} - ${trackName}`}</Li>))}
 						</Ul>

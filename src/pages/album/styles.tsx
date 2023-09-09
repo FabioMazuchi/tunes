@@ -113,7 +113,7 @@ export const DivPlayer = styled.div`
 	color: white;
 	margin-top: 20px;
 	font-size: 3rem;
-	width: 30%;
+	width: 70%;
 	justify-content: space-around;
 `;
 
