@@ -184,7 +184,7 @@ Error generating stack: `+o.message+`
   @media (max-width: 290px) {
     font-size: 15px;
 	}
-`;function b1(){return g.jsx(q1,{children:g.jsx("p",{children:"Todos os direitos reservados - Tunes © 2023"})})}function eg(){return g.jsxs(g.Fragment,{children:[g.jsx(Z1,{}),g.jsx(P0,{}),g.jsx(b1,{})]})}const tg=_.main`
+`;function b1(){return g.jsx(q1,{children:g.jsx("p",{children:"Todos os direitos reservados | Tunes © 2025"})})}function eg(){return g.jsxs(g.Fragment,{children:[g.jsx(Z1,{}),g.jsx(P0,{}),g.jsx(b1,{})]})}const tg=_.main`
 	height: 100%;
 	display: flex;
 	align-items: center;
